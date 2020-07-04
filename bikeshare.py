@@ -7,37 +7,37 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'washington': 'washington.csv' }
 
 def get_filters(city, month, day):
-    
+
     print('Hello! Let\'s explore some US bikeshare data!')
-    
+
     while True:
         city = input("Write a city name: Chicago, New York City or Washington!").lower()
         if city not in CITY_DATA:
             print("\nInvalid answer\n")
-            continue   
+            continue
         else:
             break
 
     while True:
-        time = input("Do you want to filter as month, day, all or none?").lower()               
+        time = input("Do you want to filter as month, day, all or none?").lower()
         if time == 'month':
             month = input("Which month? January, Feburary, March, April, May or June?").lower()
             day = 'all'
             break
-                    
+
         elif time == 'day':
             month = 'all'
             day = input("Which day? Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday").lower()
             break
-                    
+
         elif time == 'all':
-            month = input("Which month? January, Feburary, March, April, May or June?").lower()           
+            month = input("Which month? January, Feburary, March, April, May or June?").lower()
             day = input("Which day? Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday").lower()
-            break       
+            break
         elif time == 'none':
             month = 'all'
             day = 'all'
-            break       
+            break
         else:
             input("You wrote the wrong word! Please type it again.")
             break
@@ -49,7 +49,7 @@ def get_filters(city, month, day):
     return city, month, day
 
 def load_data(city, month, day):
-    
+
     df = pd.read_csv(CITY_DATA[city])
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     df['month'] = df['Start Time'].dt.month
@@ -59,7 +59,7 @@ def load_data(city, month, day):
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month) +1
         df = df[df['month'] == month]
-    
+
     if day != 'all':
         df = df[df['day_of_week'] == day.title()]
 
@@ -71,7 +71,7 @@ def time_stats(df):
 
     print('\nCalculating The Most Common Times of Travel\n')
     start_time = time.time()
-      
+
 
     # display the most common month
     common_month = df['month'].mode()[0]
@@ -88,7 +88,7 @@ def time_stats(df):
     common_hour = df['hour'].mode()[0]
     print(common_hour)
 
-    
+
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -157,10 +157,10 @@ def user_stats(df):
     if 'Birth_Year' in df:
         earliest = df['Birth_Year'].min()
         print(earliest)
-        
+
         recent = df['Birth_Year'].max()
         print(recent)
-        
+
         common_birth = df['Birth Year'].mode()[0]
         print(common_birth)
     else:
@@ -169,6 +169,7 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
+#for users to see raw data
 def data(df):
     raw_data = 0
     while True:
@@ -183,7 +184,7 @@ def data(df):
                 break
         elif answer == 'no':
             return
-        
+#for restarting    
 def main():
     city = ""
     month = ""
