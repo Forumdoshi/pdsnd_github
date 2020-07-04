@@ -1,5 +1,6 @@
 ### Date created
 Udacity programming for data science nanodegree course
+4 months
 
 ### Project Title
 Bike Share Data
@@ -16,3 +17,4 @@ It compares the system usage between three large cities: Chicago, New York City,
 Udacity
 Motivate
 Github
+stack overflow
