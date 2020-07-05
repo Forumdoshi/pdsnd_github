@@ -1,15 +1,14 @@
 ### Date created
-Programing for data science udacity finishing the course by 5th of july
+Include the date you created this project and README file.
 
 ### Project Title
-Udacity programming for data science
+Replace the Project Title
 
-### Description
-Learning github
-Bike share data
+### Documentation
+Describe what your project is about and what it does
 
 ### Files used
-Data for bike share users from 3 different city
+Include the files used
 
 ### Credits
-Udacity
+It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
