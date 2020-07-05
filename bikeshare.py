@@ -2,6 +2,7 @@ import time
 import pandas as pd
 import numpy as np
 
+
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
@@ -9,7 +10,7 @@ CITY_DATA = { 'chicago': 'chicago.csv',
 def get_filters(city, month, day):
 
     print('Hello! Let\'s explore some US bikeshare data!')
-    
+
     while True:
         city = input("Write a city name: Chicago, New York City or Washington!").lower()
         if city not in CITY_DATA:
@@ -45,6 +46,7 @@ def get_filters(city, month, day):
     print(city)
     print(month)
     print(day)
+    
     print('-'*40)
     return city, month, day
 
@@ -71,24 +73,35 @@ def time_stats(df):
 
     print('\nCalculating The Most Common Times of Travel\n')
     start_time = time.time()
+<<<<<<< .merge_file_qAx8iR
+
+||||||| .merge_file_T4RG83
+      
+=======
+>>>>>>> .merge_file_0AzBSz
 
 
-    # display the most common month
+# display the most common month
     common_month = df['month'].mode()[0]
     print(common_month)
 
 
-    # display the most common day of week
+# display the most common day of week
     common_day = df['day_of_week'].mode()[0]
     print(common_day)
 
 
-    # display the most common start hour
+# display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
     common_hour = df['hour'].mode()[0]
     print(common_hour)
 
+<<<<<<< .merge_file_qAx8iR
 
+||||||| .merge_file_T4RG83
+    
+=======
+>>>>>>> .merge_file_0AzBSz
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -100,15 +113,15 @@ def station_stats(df):
     print('\nCalculating The Most Common Stations and Trip\n')
     start_time = time.time()
 
-    # display most commonly used start station
+# display most commonly used start station
     common_start = df['Start Station'].mode()[0]
     print(common_start)
 
-    # display most commonly used end station
+# display most commonly used end station
     common_end = df['End Station'].mode()[0]
     print(common_end)
 
-    # display most frequent combination of start station and end station trip
+# display most frequent combination of start station and end station trip
     df['comb'] = df['Start Station'] + ' to ' + df['End Station']
     common_comb = df['comb'].mode()[0]
     print(common_comb)
@@ -123,11 +136,11 @@ def trip_duration_stats(df):
     print('\nCalculating Trip Duration\n')
     start_time = time.time()
 
-    # display total travel time
+# display total travel time
     total_travel = df['Trip Duration'].sum()
     print(total_travel)
 
-    # display mean travel time
+# display mean travel time
     mean_travel = df['Trip Duration'].mean()
     print(mean_travel)
 
@@ -141,19 +154,18 @@ def user_stats(df):
     print('\nCalculating User Statistics\n')
     start_time = time.time()
 
-    # Display counts of user types
+# Display counts of user types
     user_types = df['User Type'].value_counts()
     print(user_types)
 
-    # Display counts of gender
+# Display counts of gender
     if 'Gender' in df:
         gender = df['Gender'].value_counts()
         print(gender)
     else:
         print("There is no gender information for the given city.")
 
-
-    # Display earliest, most recent, and most common year of birth
+# Display earliest, most recent, and most common year of birth
     if 'Birth_Year' in df:
         earliest = df['Birth_Year'].min()
         print(earliest)
@@ -169,6 +181,7 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
+#For users to see raw data
 def data(df):
     raw_data = 0
     while True:
@@ -183,7 +196,13 @@ def data(df):
                 break
         elif answer == 'no':
             return
+<<<<<<< .merge_file_qAx8iR
 
+||||||| .merge_file_T4RG83
+        
+=======
+#For restarting
+>>>>>>> .merge_file_0AzBSz
 def main():
     city = ""
     month = ""
